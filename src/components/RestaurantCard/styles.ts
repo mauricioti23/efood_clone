@@ -49,6 +49,9 @@ export const Description = styled.p`
 `
 
 export const CuisineButton = styled.div`
+  position: absolute;
+  top: 8px;
+  right: 8px;
   background-color: #e66767;
   color: #ffebd9;
   font-family: Roboto, sans-serif;
@@ -59,15 +62,18 @@ export const CuisineButton = styled.div`
   text-align: center;
 `
 
-export const HighlightButton = styled.div`
-  background-color: #e66767;
-  color: #ffebd9;
-  font-family: Roboto, sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 100%;
-  padding: 2px 8px;
-  text-align: center;
+export const RatingContainer = styled.div`
+  font-size: 18px;
+  font-weight: 600;
+  color: #e66767;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+`
+
+export const Star = styled.span`
+  color: gold;
+  font-size: 18px;
 `
 
 export {}

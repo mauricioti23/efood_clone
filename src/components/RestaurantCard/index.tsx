@@ -6,7 +6,8 @@ import {
   Title,
   Description,
   CuisineButton,
-  HighlightButton
+  RatingContainer,
+  Star
 } from './styles'
 import Button from '../Button'
 
@@ -25,25 +26,30 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
   cuisine,
   showHighlightButton
 }) => {
+  const rating = (Math.random() * 5).toFixed(1)
+
   return (
     <Card>
+      {showHighlightButton && (
+        <CuisineButton style={{ left: 8, right: 'auto' }}>
+          Destaque do dia
+        </CuisineButton>
+      )}
       <Cover src={image} alt={name} />
-      <div
-        style={{
-          position: 'absolute',
-          top: 8,
-          right: 8,
-          display: 'flex',
-          gap: 4
-        }}
-      >
-        {showHighlightButton && (
-          <HighlightButton>Destaque do dia</HighlightButton>
-        )}
-        <CuisineButton>{cuisine}</CuisineButton>
-      </div>
+      <CuisineButton style={{ top: 8, right: 8 }}>{cuisine}</CuisineButton>
       <Content>
-        <Title>{name}</Title>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center'
+          }}
+        >
+          <Title>{name}</Title>
+          <RatingContainer>
+            {rating} <Star>★</Star>
+          </RatingContainer>
+        </div>
         <Description>{description}</Description>
         <Button label="Saiba mais" />
       </Content>
