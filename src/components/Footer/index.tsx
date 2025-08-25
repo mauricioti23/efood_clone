@@ -1,11 +1,21 @@
 import React from 'react'
-import { Container, FooterText } from './styles'
+import { FooterBar, Inner, Logo, SocialImg, Text } from './styles'
+import logoImg from '../../assets/images/logo.png'
+import socialImg from '../../assets/images/redes-sociais.png'
 
 const Footer: React.FC = () => {
   return (
-    <Container>
-      <FooterText>© 2025 eFood. Todos os direitos reservados.</FooterText>
-    </Container>
+    <FooterBar>
+      <Inner>
+        <Logo src={logoImg} alt="efood logo" />
+        <SocialImg src={socialImg} alt="Redes sociais" />
+        <Text>
+          A efood é uma plataforma para divulgação de estabelecimentos, a
+          responsabilidade pela entrega, qualidade dos produtos é toda do
+          estabelecimento contratado.
+        </Text>
+      </Inner>
+    </FooterBar>
   )
 }
 

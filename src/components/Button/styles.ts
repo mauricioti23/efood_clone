@@ -1,16 +1,25 @@
 import styled from 'styled-components'
 
 export const ButtonContainer = styled.button`
-  background-color: #ff6347;
-  color: #fff;
-  padding: 10px 20px;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  width: 82px;
+  height: 24px;
+  background-color: #e66767;
+  color: #ffebd9;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
   border: none;
-  border-radius: 6px;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 16px;
+  transition: transform 0.2s;
+
   &:hover {
-    background-color: #e5533d;
+    transform: translateY(-2px);
   }
 `
 

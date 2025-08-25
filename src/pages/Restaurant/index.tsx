@@ -1,24 +1,19 @@
 import React from 'react'
-import { Container } from './styles'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
 import RestaurantCard from '../../components/RestaurantCard'
+import { Container } from './styles'
 
-const RestaurantPage: React.FC = () => {
+const Restaurant: React.FC = () => {
   return (
-    <>
-      <Header />
-      <Container>
-        <h2>Detalhes do Restaurante</h2>
-        <RestaurantCard
-          name="Italian Bistro"
-          description="Authentic Italian cuisine"
-          image="/assets/images/restaurants/massa.png.png"
-        />
-      </Container>
-      <Footer />
-    </>
+    <Container>
+      <h2>Detalhes do Restaurante</h2>
+      <RestaurantCard
+        name="Italian Bistro"
+        description="Autêntica culinária italiana"
+        image="/assets/images/restaurants/massa.png"
+        cuisine="Italiana"
+      />
+    </Container>
   )
 }
 
-export default RestaurantPage
+export default Restaurant
