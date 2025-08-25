@@ -1,40 +1,25 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import Container from '../Container'
 
-export const HeaderBar = styled.header`
-  background-color: ${cores.cinza};
-  padding: 24px;
-  border-radius: 16px;
-  margin-bottom: 80px;
+export const Bar = styled.header`
+  background: #000; /* Ajuste conforme Figma: se for claro, trocar */
+  color: #fff;
+`
+
+export const Wrapper = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  a {
-    color: ${cores.branca};
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  div {
-    display: flex;
-    align-items: center;
-  }
+  padding: ${({ theme }) => theme.spacing(6)} 0;
 `
 
-export const Links = styled.ul`
+export const Logo = styled.img`
+  width: 125px;
+  height: 57.5px; /* respeitando proporção informada */
+`
+
+export const Actions = styled.nav`
   display: flex;
-  margin-left: 40px;
-`
-
-export const LinkItem = styled.li`
-  margin-right: 16px;
-`
-
-export const LinkCart = styled.a`
-  display: flex;
-
-  img {
-    margin-left: 16px;
-  }
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing(4)};
 `

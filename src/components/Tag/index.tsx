@@ -1,12 +1,13 @@
-import { TagContainer } from './styles'
+import styled from 'styled-components'
 
-export type Props = {
-  size?: 'small' | 'big'
-  children: string
-}
-
-const Tag = ({ children, size = 'small' }: Props) => (
-  <TagContainer size={size}>{children}</TagContainer>
-)
+const Tag = styled.span`
+  display: inline-block;
+  padding: 6px 12px;
+  background: ${({ theme }) => theme.colors.surface};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radii.pill};
+  font-size: ${({ theme }) => theme.fonts.size.xs};
+  color: ${({ theme }) => theme.colors.muted};
+`
 
 export default Tag
