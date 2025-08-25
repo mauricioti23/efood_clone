@@ -1,25 +1,19 @@
 import styled from 'styled-components'
-import Container from '../Container'
 
-export const Bar = styled.header`
-  background: #000; /* Ajuste conforme Figma: se for claro, trocar */
-  color: #fff;
-`
-
-export const Wrapper = styled(Container)`
+export const Container = styled.header`
+  width: 100%;
+  height: 80px; /* altura conforme Figma */
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: ${({ theme }) => theme.spacing(6)} 0;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `
 
 export const Logo = styled.img`
-  width: 125px;
-  height: 57.5px; /* respeitando proporção informada */
+  width: 125px; /* tamanho da logo conforme Figma */
+  height: 57.5px;
+  object-fit: contain;
 `
 
-export const Actions = styled.nav`
-  display: flex;
-  align-items: center;
-  gap: ${({ theme }) => theme.spacing(4)};
-`
+export {}

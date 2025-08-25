@@ -1,18 +1,13 @@
-import { Link } from 'react-router-dom'
-import { Bar, Wrapper, Logo, Actions } from './styles'
+import React from 'react'
+import { Container, Logo } from './styles'
+import logoImg from '../../assets/images/logo.png'
 
-export default function Header() {
+const Header: React.FC = () => {
   return (
-    <Bar>
-      <Wrapper>
-        <Link to="/">
-          <Logo src="/images/logo.png" alt="efood" />
-        </Link>
-        <Actions>
-          <Link to="/login">Entrar</Link>
-          <Link to="/cart">Carrinho</Link>
-        </Actions>
-      </Wrapper>
-    </Bar>
+    <Container>
+      <Logo src={logoImg} alt="eFood Logo" />
+    </Container>
   )
 }
+
+export default Header

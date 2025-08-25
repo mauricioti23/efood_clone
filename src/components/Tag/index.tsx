@@ -1,13 +1,10 @@
-import styled from 'styled-components'
+import React from 'react'
 
-const Tag = styled.span`
-  display: inline-block;
-  padding: 6px 12px;
-  background: ${({ theme }) => theme.colors.surface};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.pill};
-  font-size: ${({ theme }) => theme.fonts.size.xs};
-  color: ${({ theme }) => theme.colors.muted};
-`
+export type Props = {
+  color?: 'verde' | 'vermelho' | 'amarelo'
+  children: React.ReactNode
+}
+
+const Tag: React.FC<Props> = ({ color, children }) => <div>{children}</div>
 
 export default Tag

@@ -1,2 +1,3 @@
 export * from './global'
-export { theme } from './theme'
+export { theme, cores } from './theme'
+export {}

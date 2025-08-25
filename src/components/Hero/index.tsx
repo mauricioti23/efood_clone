@@ -1,12 +1,13 @@
-import { Section, Inner } from './styles'
+import React from 'react'
+import { Container, HeroImage } from './styles'
+import heroImg from '../../assets/images/Hero.png'
 
-export default function Hero() {
+const Hero: React.FC = () => {
   return (
-    <Section>
-      <Inner>
-        <h1>Viva experiências gastronômicas</h1>
-        <p>Os melhores restaurantes, pratos e avaliações em um só lugar</p>
-      </Inner>
-    </Section>
+    <Container>
+      <HeroImage src={heroImg} alt="Hero" />
+    </Container>
   )
 }
+
+export default Hero
