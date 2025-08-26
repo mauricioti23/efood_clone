@@ -11,9 +11,6 @@ export const Card = styled.div`
   position: relative;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
-  opacity: 1;
-  transform: rotate(0deg);
-  border-radius: 0;
 
   &:hover {
     transform: translateY(-4px);
@@ -24,7 +21,6 @@ export const Cover = styled.img`
   width: 100%;
   height: 220px;
   object-fit: cover;
-  position: relative;
 `
 
 export const Content = styled.div`
@@ -48,10 +44,15 @@ export const Description = styled.p`
   color: #e66767;
 `
 
-export const CuisineButton = styled.div`
+export const CuisineWrapper = styled.div`
   position: absolute;
   top: 8px;
   right: 8px;
+  display: flex;
+  gap: 8px;
+`
+
+export const CuisineButton = styled.div`
   background-color: #e66767;
   color: #ffebd9;
   font-family: Roboto, sans-serif;
@@ -76,4 +77,15 @@ export const Star = styled.span`
   font-size: 18px;
 `
 
-export {}
+export const SaibaMaisButton = styled.button`
+  width: 82px;
+  height: 24px;
+  background-color: #e66767;
+  color: #ffebd9;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  margin-top: auto; /* mantém o botão no final do conteúdo */
+`

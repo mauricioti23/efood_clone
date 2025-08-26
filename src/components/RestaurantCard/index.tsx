@@ -7,9 +7,10 @@ import {
   Description,
   CuisineButton,
   RatingContainer,
-  Star
+  Star,
+  CuisineWrapper,
+  SaibaMaisButton
 } from './styles'
-import Button from '../Button'
 
 export interface RestaurantCardProps {
   name: string
@@ -17,6 +18,7 @@ export interface RestaurantCardProps {
   image: string
   cuisine: string
   showHighlightButton?: boolean
+  onClick?: () => void
 }
 
 const RestaurantCard: React.FC<RestaurantCardProps> = ({
@@ -24,19 +26,22 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
   description,
   image,
   cuisine,
-  showHighlightButton
+  showHighlightButton,
+  onClick
 }) => {
   const rating = (Math.random() * 5).toFixed(1)
 
   return (
     <Card>
-      {showHighlightButton && (
-        <CuisineButton style={{ left: 8, right: 'auto' }}>
-          Destaque do dia
-        </CuisineButton>
-      )}
       <Cover src={image} alt={name} />
-      <CuisineButton style={{ top: 8, right: 8 }}>{cuisine}</CuisineButton>
+
+      <CuisineWrapper>
+        {showHighlightButton && (
+          <CuisineButton>Destaque da semana</CuisineButton>
+        )}
+        <CuisineButton>{cuisine}</CuisineButton>
+      </CuisineWrapper>
+
       <Content>
         <div
           style={{
@@ -50,8 +55,9 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
             {rating} <Star>★</Star>
           </RatingContainer>
         </div>
+
         <Description>{description}</Description>
-        <Button label="Saiba mais" />
+        <SaibaMaisButton onClick={onClick}>Saiba mais</SaibaMaisButton>
       </Content>
     </Card>
   )

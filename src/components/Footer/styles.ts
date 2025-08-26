@@ -31,6 +31,6 @@ export const SocialImg = styled.img`
 export const Text = styled.p`
   width: 480px;
   font-size: 14px;
-  color: #666;
+  color: #e66767;
   line-height: 1.5;
 `

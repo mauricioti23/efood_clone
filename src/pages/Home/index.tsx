@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Hero from '../../components/Hero'
 import RestaurantCard from '../../components/RestaurantCard'
 import { HomeContainer, RestaurantList } from './styles'
@@ -8,6 +9,8 @@ import massaImg from '../../assets/images/restaurants/massa.png'
 import sushiImg from '../../assets/images/restaurants/sushi.png'
 
 const Home: React.FC = () => {
+  const navigate = useNavigate()
+
   return (
     <>
       <HomeContainer>
@@ -19,6 +22,7 @@ const Home: React.FC = () => {
             image={massaImg}
             cuisine="Italiana"
             showHighlightButton={true}
+            onClick={() => navigate('/restaurant-profile')}
           />
           <RestaurantCard
             name="Sushi World"

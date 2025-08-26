@@ -1,14 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import { BrowserRouter } from 'react-router-dom'
-import { GlobalStyle } from './styles/global'
+import { createGlobalStyle } from 'styled-components'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+  }
+`
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <GlobalStyle />
-      <App />
-    </BrowserRouter>
+    <GlobalStyle />
+    <App />
   </React.StrictMode>
 )
