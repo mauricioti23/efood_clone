@@ -10,14 +10,14 @@ import {
 } from './styles'
 
 import closeImg from '../../assets/images/close.png'
-import pizzaImg from '../../assets/images/restaurants/pizza.png' // import da imagem
 
 type Props = {
   isOpen: boolean
   onClose: () => void
   title: string
   description: string
-  image?: string
+  image: string
+  onAddToCart?: () => void
 }
 
 const MenuModal: React.FC<Props> = ({
@@ -25,7 +25,8 @@ const MenuModal: React.FC<Props> = ({
   onClose,
   title,
   description,
-  image = pizzaImg // usa a pizza.png como padrão
+  image,
+  onAddToCart
 }) => {
   if (!isOpen) return null
 
@@ -37,7 +38,9 @@ const MenuModal: React.FC<Props> = ({
         <div>
           <ProductTitle>{title}</ProductTitle>
           <ProductDescription>{description}</ProductDescription>
-          <AddButton>Adicionar ao carrinho - R$60,90</AddButton>
+          <AddButton onClick={onAddToCart}>
+            Adicionar ao carrinho - R$60,90
+          </AddButton>
         </div>
       </ModalContainer>
     </Overlay>
