@@ -1,40 +1,44 @@
 import styled from 'styled-components'
+import vector from '../../assets/images/Vector.png'
 
 export const Header = styled.header`
   width: 100%;
-  max-width: 2031.812px;
   height: 186px;
-  background-color: #e66767;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 32px;
+  background-color: #ffebd9; /* mesma cor do Hero */
+  background-image: url(${vector});
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
-  top: -23px;
-`
-
-export const Logo = styled.img`
-  width: 125px;
-  height: 57.5px;
 `
 
 export const Title = styled.h1`
   font-family: Roboto, sans-serif;
   font-weight: 900;
   font-size: 18px;
-  line-height: 100%;
-  color: #fff;
+  color: #e66767;
+  position: absolute;
+  top: 59px;
+  left: 171px;
   cursor: pointer;
-  text-align: center;
+`
+
+export const Logo = styled.img`
+  width: 125px;
+  height: 57.5px;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
 `
 
 export const Cart = styled.div`
   font-family: Roboto, sans-serif;
   font-weight: 900;
   font-size: 18px;
-  line-height: 100%;
-  color: #fff;
-  text-align: right;
+  color: #e66767;
+  position: absolute;
+  top: 59px;
+  right: 171px;
 `
 
 export const Container = styled.div`
