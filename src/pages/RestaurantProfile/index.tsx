@@ -2,11 +2,10 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Header, Logo, Title, Cart, Container } from './styles'
 import RestaurantHero from '../../components/RestaurantHero'
-import RestaurantCard from '../../components/RestaurantCard'
+import MenuCards from '../../components/MenuCards'
 import Footer from '../../components/Footer'
 
 import logo from '../../assets/images/logo.png'
-import massaImg from '../../assets/images/restaurants/massa.png'
 
 const RestaurantProfile: React.FC = () => {
   const navigate = useNavigate()
@@ -22,13 +21,7 @@ const RestaurantProfile: React.FC = () => {
       <RestaurantHero />
 
       <Container>
-        <RestaurantCard
-          name="Italian Bistro"
-          description="Autêntica culinária italiana"
-          image={massaImg}
-          cuisine="Italiana"
-          showHighlightButton={true}
-        />
+        <MenuCards />
       </Container>
 
       <Footer />
