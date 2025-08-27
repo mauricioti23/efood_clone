@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   CardsContainer,
   Card,
@@ -8,9 +8,19 @@ import {
   CardButton
 } from './styles'
 
-import pizzaImg from '../../assets/images/restaurants/massa.png'
+import pizzaImg from '../../assets/images/restaurants/pizza.png' // imagem para os 6 cards
+import MenuModal from '../MenuModal'
+
+type CardType = {
+  title: string
+  description: string
+  image: string
+}
 
 const MenuCards: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedCard, setSelectedCard] = useState<CardType | null>(null)
+
   const cardsData = [
     {
       title: 'Pizza Marguerita',
@@ -44,17 +54,41 @@ const MenuCards: React.FC = () => {
     }
   ]
 
+  const handleAddToCart = (card: { title: string; description: string }) => {
+    setSelectedCard({ ...card, image: pizzaImg }) // adiciona a imagem padrão
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setSelectedCard(null)
+  }
+
   return (
-    <CardsContainer>
-      {cardsData.map((card, index) => (
-        <Card key={index}>
-          <CardImage src={pizzaImg} alt={card.title} />
-          <CardTitle>{card.title}</CardTitle>
-          <CardDescription>{card.description}</CardDescription>
-          <CardButton>Adiconar ao carrinho</CardButton>
-        </Card>
-      ))}
-    </CardsContainer>
+    <>
+      <CardsContainer>
+        {cardsData.map((card, index) => (
+          <Card key={index}>
+            <CardImage src={pizzaImg} alt={card.title} />
+            <CardTitle>{card.title}</CardTitle>
+            <CardDescription>{card.description}</CardDescription>
+            <CardButton onClick={() => handleAddToCart(card)}>
+              Adicionar ao carrinho
+            </CardButton>
+          </Card>
+        ))}
+      </CardsContainer>
+
+      {selectedCard && (
+        <MenuModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          title={selectedCard.title}
+          description={selectedCard.description}
+          image={selectedCard.image}
+        />
+      )}
+    </>
   )
 }
 
