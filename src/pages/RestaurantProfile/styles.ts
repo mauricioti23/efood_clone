@@ -39,6 +39,7 @@ export const Cart = styled.div`
   position: absolute;
   top: 59px;
   right: 171px;
+  cursor: pointer; /* adicionado para UX */
 `
 
 export const Container = styled.div`

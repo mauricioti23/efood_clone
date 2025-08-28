@@ -8,7 +8,7 @@ import Footer from '../../components/Footer'
 
 import logo from '../../assets/images/logo.png'
 
-type CartItem = {
+export type CartItem = {
   title: string
   price: string
   image: string
@@ -52,7 +52,11 @@ const RestaurantProfile: React.FC = () => {
       <Header>
         <Title onClick={() => navigate('/')}>Restaurantes</Title>
         <Logo src={logo} alt="efood" />
-        <Cart>{cartItems.length} produto(s) no carrinho</Cart>
+        <Cart onClick={() => setIsCartOpen(true)}>
+          {cartItems.length > 0
+            ? `${cartItems.length} produto(s) no carrinho`
+            : 'Carrinho vazio'}
+        </Cart>
       </Header>
 
       <Container>

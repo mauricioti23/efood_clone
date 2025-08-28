@@ -9,7 +9,8 @@ import {
   ProductPrice,
   RemoveButton,
   Total,
-  CheckoutButton
+  CheckoutButton,
+  EmptyMessage
 } from './styles'
 
 import trashIcon from '../../assets/images/lixeira.png'
@@ -37,7 +38,9 @@ const CartSideBar: React.FC<Props> = ({ isOpen, onClose, items, onRemove }) => {
 
   return (
     <Overlay onClick={onClose}>
-      <SidebarContainer onClick={(e) => e.stopPropagation()}>
+      <SidebarContainer onClick={(e) => e.stopPropagation()} isOpen={isOpen}>
+        {items.length === 0 && <EmptyMessage>Carrinho vazio</EmptyMessage>}
+
         {items.map((item, index) => (
           <Product key={index}>
             <ProductImage src={item.image} alt={item.title} />
@@ -51,12 +54,16 @@ const CartSideBar: React.FC<Props> = ({ isOpen, onClose, items, onRemove }) => {
           </Product>
         ))}
 
-        <Total>
-          <span>Valor total</span>
-          <span>R$ {total.toFixed(2)}</span>
-        </Total>
+        {items.length > 0 && (
+          <>
+            <Total>
+              <span>Valor total</span>
+              <span>R$ {total.toFixed(2)}</span>
+            </Total>
 
-        <CheckoutButton>Continuar com a entrega</CheckoutButton>
+            <CheckoutButton>Continuar com a entrega</CheckoutButton>
+          </>
+        )}
       </SidebarContainer>
     </Overlay>
   )

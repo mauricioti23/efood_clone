@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 export const Overlay = styled.div`
   position: fixed;
@@ -10,10 +10,28 @@ export const Overlay = styled.div`
   z-index: 1000;
 `
 
-export const SidebarContainer = styled.div`
+const slideIn = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`
+
+const slideOut = keyframes`
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+`
+
+export const SidebarContainer = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
-  right: 0; /* colado no lado direito */
+  right: 0;
   width: 360px;
   height: 100%;
   background: #e66767;
@@ -22,6 +40,7 @@ export const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  animation: ${({ isOpen }) => (isOpen ? slideIn : slideOut)} 0.3s forwards;
 `
 
 export const Product = styled.div`
@@ -30,8 +49,7 @@ export const Product = styled.div`
   margin-bottom: 24px;
   background: #ffebd9;
   padding: 8px;
-  border-radius: 4px;
-  align-items: center; /* centraliza verticalmente os itens */
+  align-items: center;
 `
 
 export const ProductImage = styled.img`
@@ -45,8 +63,8 @@ export const ProductImage = styled.img`
 export const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center; /* centraliza verticalmente o preço */
-  align-items: flex-start; /* título e preço alinhados à esquerda */
+  justify-content: center;
+  align-items: flex-start;
   flex: 1;
   height: 100%;
 `
@@ -56,7 +74,7 @@ export const ProductTitle = styled.span`
   font-weight: 700;
   font-size: 14px;
   color: #e66767;
-  margin-bottom: auto; /* empurra para o topo */
+  margin-bottom: auto;
 `
 
 export const ProductPrice = styled.span`
@@ -64,12 +82,12 @@ export const ProductPrice = styled.span`
   font-weight: 400;
   font-size: 14px;
   color: #e66767;
-  margin-top: auto; /* centraliza verticalmente em relação à imagem */
+  margin-top: auto;
 `
 
 export const RemoveButton = styled.button`
   position: absolute;
-  bottom: 8px; /* canto inferior direito do card */
+  bottom: 8px;
   right: 8px;
   width: 16px;
   height: 16px;
@@ -85,7 +103,7 @@ export const RemoveButton = styled.button`
 
 export const Total = styled.div`
   display: flex;
-  justify-content: space-between; /* texto à esquerda, valor à direita */
+  justify-content: space-between;
   font-family: Roboto, sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -104,5 +122,12 @@ export const CheckoutButton = styled.button`
   font-size: 14px;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+`
+
+export const EmptyMessage = styled.div`
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 50%;
 `
