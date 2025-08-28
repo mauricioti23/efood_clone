@@ -1,13 +1,8 @@
 import React from 'react'
-import { Container, HeroImage } from './styles'
-import heroImg from '../../assets/images/Hero.png'
+import { HeroContainer } from './styles'
 
 const Hero: React.FC = () => {
-  return (
-    <Container>
-      <HeroImage src={heroImg} alt="Hero" />
-    </Container>
-  )
+  return <HeroContainer />
 }
 
 export default Hero

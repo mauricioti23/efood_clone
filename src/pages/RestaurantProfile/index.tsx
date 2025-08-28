@@ -20,10 +20,8 @@ export type CartItem = {
 
 const RestaurantProfile: React.FC = () => {
   const navigate = useNavigate()
-
   const [selectedItem, setSelectedItem] = useState<CartItem | null>(null)
   const [cartItems, setCartItems] = useState<CartItem[]>([])
-
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [isDeliveryOpen, setIsDeliveryOpen] = useState(false)
@@ -31,7 +29,6 @@ const RestaurantProfile: React.FC = () => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false)
   const [orderId, setOrderId] = useState('')
 
-  // Abrir o modal do produto
   const handleOpenModal = (item: CartItem) => {
     setSelectedItem(item)
     setIsModalOpen(true)
@@ -42,7 +39,6 @@ const RestaurantProfile: React.FC = () => {
     setSelectedItem(null)
   }
 
-  // Adicionar ao carrinho
   const handleAddToCart = () => {
     if (!selectedItem) return
     setCartItems((prev) => [...prev, selectedItem])
@@ -50,7 +46,6 @@ const RestaurantProfile: React.FC = () => {
     handleCloseModal()
   }
 
-  // Remover item do carrinho
   const handleRemoveItem = (index: number) => {
     setCartItems((prev) => prev.filter((_, i) => i !== index))
   }

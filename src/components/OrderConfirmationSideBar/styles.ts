@@ -11,12 +11,8 @@ export const Overlay = styled.div`
 `
 
 const slideIn = keyframes`
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 `
 
 export const SidebarContainer = styled.div<{ isOpen: boolean }>`
@@ -32,6 +28,16 @@ export const SidebarContainer = styled.div<{ isOpen: boolean }>`
   flex-direction: column;
   overflow-y: auto;
   animation: ${({ isOpen }) => (isOpen ? slideIn : '')} 0.3s forwards;
+
+  @media (max-width: 768px) {
+    width: 300px;
+    padding: 24px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 16px;
+  }
 `
 
 export const Title = styled.h2`
@@ -40,6 +46,11 @@ export const Title = styled.h2`
   font-size: 16px;
   color: #ffffff;
   margin-bottom: 24px;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
 `
 
 export const Message = styled.div`
@@ -49,6 +60,10 @@ export const Message = styled.div`
   line-height: 1.5;
   flex: 1;
   overflow-wrap: break-word;
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
 `
 
 export const ConfirmButton = styled.button`
@@ -62,4 +77,10 @@ export const ConfirmButton = styled.button`
   border: none;
   cursor: pointer;
   margin-top: 24px;
+
+  @media (max-width: 480px) {
+    height: 32px;
+    font-size: 12px;
+    margin-top: 16px;
+  }
 `

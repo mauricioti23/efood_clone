@@ -1,22 +1,28 @@
 import styled from 'styled-components'
+import heroImg from '../../assets/images/Hero.png' // Caminho original mantido
 
-export const Container = styled.section`
+export const HeroContainer = styled.section`
   width: 100%;
+  height: 300px;
+  background: url(${heroImg}) center/cover no-repeat;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  position: relative;
-  margin-bottom: 30px;
-`
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
 
-export const HeroImage = styled.img`
-  width: 2031.8127px; /* largura do Figma */
-  height: 384px; /* altura do Figma */
-  position: relative;
-  top: -24px; /* posição top do Figma */
-  transform: rotate(0deg); /* ângulo do Figma */
-  opacity: 1; /* opacidade do Figma */
-  object-fit: cover;
-`
+  @media (max-width: 1024px) {
+    height: 250px;
+    padding: 0 16px;
+  }
 
-export {}
+  @media (max-width: 768px) {
+    height: 220px;
+    padding: 0 16px;
+  }
+
+  @media (max-width: 480px) {
+    height: 180px;
+    padding: 0 10px;
+  }
+`

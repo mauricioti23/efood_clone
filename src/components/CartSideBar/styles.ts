@@ -11,21 +11,13 @@ export const Overlay = styled.div`
 `
 
 const slideIn = keyframes`
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 `
 
 const slideOut = keyframes`
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
 `
 
 export const SidebarContainer = styled.div<{ isOpen: boolean }>`
@@ -41,6 +33,11 @@ export const SidebarContainer = styled.div<{ isOpen: boolean }>`
   flex-direction: column;
   overflow-y: auto;
   animation: ${({ isOpen }) => (isOpen ? slideIn : slideOut)} 0.3s forwards;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 20px;
+  }
 `
 
 export const Product = styled.div`
@@ -50,6 +47,11 @@ export const Product = styled.div`
   background: #ffebd9;
   padding: 8px;
   align-items: center;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `
 
 export const ProductImage = styled.img`
@@ -58,6 +60,13 @@ export const ProductImage = styled.img`
   object-fit: cover;
   margin-right: 16px;
   position: relative;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
 `
 
 export const ProductInfo = styled.div`
@@ -98,6 +107,13 @@ export const RemoveButton = styled.button`
   img {
     width: 16px;
     height: 16px;
+  }
+
+  @media (max-width: 480px) {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 8px;
   }
 `
 

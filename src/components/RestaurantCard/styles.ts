@@ -15,12 +15,35 @@ export const Card = styled.div`
   &:hover {
     transform: translateY(-4px);
   }
+
+  @media (max-width: 1024px) {
+    width: 380px;
+    height: 360px;
+  }
+
+  @media (max-width: 768px) {
+    width: 300px;
+    height: 340px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    height: auto;
+  }
 `
 
 export const Cover = styled.img`
   width: 100%;
   height: 220px;
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    height: 180px;
+  }
+
+  @media (max-width: 480px) {
+    height: 160px;
+  }
 `
 
 export const Content = styled.div`
@@ -36,12 +59,28 @@ export const Title = styled.h3`
   font-weight: 600;
   margin: 0;
   color: #e66767;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 `
 
 export const Description = styled.p`
   font-size: 14px;
   margin: 0;
   color: #e66767;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
 `
 
 export const CuisineWrapper = styled.div`
@@ -50,6 +89,13 @@ export const CuisineWrapper = styled.div`
   right: 8px;
   display: flex;
   gap: 8px;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    top: 4px;
+    right: 4px;
+    gap: 4px;
+  }
 `
 
 export const CuisineButton = styled.div`
@@ -61,6 +107,11 @@ export const CuisineButton = styled.div`
   line-height: 100%;
   padding: 2px 8px;
   text-align: center;
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
 `
 
 export const RatingContainer = styled.div`
@@ -70,11 +121,19 @@ export const RatingContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
 `
 
 export const Star = styled.span`
   color: gold;
   font-size: 18px;
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
 `
 
 export const SaibaMaisButton = styled.button`
@@ -87,5 +146,11 @@ export const SaibaMaisButton = styled.button`
   font-size: 12px;
   border: none;
   cursor: pointer;
-  margin-top: auto; /* mantém o botão no final do conteúdo */
+  margin-top: auto;
+
+  @media (max-width: 480px) {
+    width: 70px;
+    height: 22px;
+    font-size: 11px;
+  }
 `

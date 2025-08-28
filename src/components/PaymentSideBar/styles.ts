@@ -11,21 +11,13 @@ export const Overlay = styled.div`
 `
 
 const slideIn = keyframes`
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 `
 
 const slideOut = keyframes`
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
 `
 
 export const SidebarContainer = styled.div<{ isOpen: boolean }>`
@@ -41,6 +33,16 @@ export const SidebarContainer = styled.div<{ isOpen: boolean }>`
   flex-direction: column;
   overflow-y: auto;
   animation: ${({ isOpen }) => (isOpen ? slideIn : slideOut)} 0.3s forwards;
+
+  @media (max-width: 768px) {
+    width: 300px;
+    padding: 24px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 16px;
+  }
 `
 
 export const Title = styled.h2`
@@ -49,6 +51,10 @@ export const Title = styled.h2`
   font-size: 16px;
   color: #ffffff;
   margin-bottom: 16px;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 `
 
 export const FormLabel = styled.label`
@@ -58,6 +64,11 @@ export const FormLabel = styled.label`
   color: #ffffff;
   margin-top: 16px;
   display: block;
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    margin-top: 12px;
+  }
 `
 
 export const FormInput = styled.input`
@@ -68,6 +79,11 @@ export const FormInput = styled.input`
   font-family: Roboto, sans-serif;
   font-size: 14px;
   border: none;
+
+  @media (max-width: 480px) {
+    height: 28px;
+    font-size: 12px;
+  }
 `
 
 export const FormRow = styled.div`
@@ -77,6 +93,12 @@ export const FormRow = styled.div`
 
   div {
     flex: 1;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
   }
 `
 
@@ -91,4 +113,10 @@ export const FormButton = styled.button`
   font-size: 14px;
   border: none;
   cursor: pointer;
+
+  @media (max-width: 480px) {
+    height: 32px;
+    font-size: 12px;
+    margin-top: 12px;
+  }
 `
