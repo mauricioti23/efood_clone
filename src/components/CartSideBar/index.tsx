@@ -26,9 +26,16 @@ type Props = {
   onClose: () => void
   items: CartItem[]
   onRemove: (index: number) => void
+  onContinue?: () => void // função para abrir DeliverySideBar
 }
 
-const CartSideBar: React.FC<Props> = ({ isOpen, onClose, items, onRemove }) => {
+const CartSideBar: React.FC<Props> = ({
+  isOpen,
+  onClose,
+  items,
+  onRemove,
+  onContinue
+}) => {
   if (!isOpen) return null
 
   const total = items.reduce(
@@ -61,7 +68,13 @@ const CartSideBar: React.FC<Props> = ({ isOpen, onClose, items, onRemove }) => {
               <span>R$ {total.toFixed(2)}</span>
             </Total>
 
-            <CheckoutButton>Continuar com a entrega</CheckoutButton>
+            <CheckoutButton
+              onClick={() => {
+                if (onContinue) onContinue()
+              }}
+            >
+              Continuar com a entrega
+            </CheckoutButton>
           </>
         )}
       </SidebarContainer>

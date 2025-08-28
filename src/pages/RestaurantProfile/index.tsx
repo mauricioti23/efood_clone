@@ -4,6 +4,7 @@ import { Header, Logo, Title, Cart, Container } from './styles'
 import MenuCards from '../../components/MenuCards'
 import MenuModal from '../../components/MenuModal'
 import CartSideBar from '../../components/CartSideBar'
+import DeliverySideBar from '../../components/DeliverySideBar'
 import Footer from '../../components/Footer'
 
 import logo from '../../assets/images/logo.png'
@@ -22,6 +23,7 @@ const RestaurantProfile: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const [isDeliveryOpen, setIsDeliveryOpen] = useState(false)
 
   // Abrir o modal do produto
   const handleOpenModal = (item: CartItem) => {
@@ -81,6 +83,19 @@ const RestaurantProfile: React.FC = () => {
         onClose={() => setIsCartOpen(false)}
         items={cartItems}
         onRemove={handleRemoveItem}
+        onContinue={() => {
+          setIsCartOpen(false)
+          setIsDeliveryOpen(true)
+        }}
+      />
+
+      <DeliverySideBar
+        isOpen={isDeliveryOpen}
+        onClose={() => setIsDeliveryOpen(false)}
+        onBackToCart={() => {
+          setIsDeliveryOpen(false)
+          setIsCartOpen(true)
+        }}
       />
 
       <Footer />
