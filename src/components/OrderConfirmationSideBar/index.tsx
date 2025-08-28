@@ -11,14 +11,14 @@ type Props = {
   isOpen: boolean
   onClose: () => void
   orderId: string
-  onConclude: () => void
+  onFinish: () => void
 }
 
 const OrderConfirmationSideBar: React.FC<Props> = ({
   isOpen,
   onClose,
   orderId,
-  onConclude
+  onFinish
 }) => {
   if (!isOpen) return null
 
@@ -44,7 +44,7 @@ const OrderConfirmationSideBar: React.FC<Props> = ({
           gastronômica. Bom apetite!
         </Message>
 
-        <ConfirmButton onClick={onConclude}>Concluir</ConfirmButton>
+        <ConfirmButton onClick={onFinish}>Concluir</ConfirmButton>
       </SidebarContainer>
     </Overlay>
   )

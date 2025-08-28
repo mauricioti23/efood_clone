@@ -19,15 +19,6 @@ const slideIn = keyframes`
   }
 `
 
-const slideOut = keyframes`
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
-`
-
 export const SidebarContainer = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
@@ -40,7 +31,7 @@ export const SidebarContainer = styled.div<{ isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  animation: ${({ isOpen }) => (isOpen ? slideIn : slideOut)} 0.3s forwards;
+  animation: ${({ isOpen }) => (isOpen ? slideIn : '')} 0.3s forwards;
 `
 
 export const Title = styled.h2`
@@ -48,21 +39,21 @@ export const Title = styled.h2`
   font-weight: 700;
   font-size: 16px;
   color: #ffffff;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 `
 
-export const Message = styled.p`
+export const Message = styled.div`
   font-family: Roboto, sans-serif;
-  font-weight: 400;
   font-size: 14px;
   color: #ffffff;
   line-height: 1.5;
-  margin-bottom: 32px;
+  flex: 1;
+  overflow-wrap: break-word;
 `
 
 export const ConfirmButton = styled.button`
-  width: 344px;
-  height: 24px;
+  width: 100%;
+  height: 36px;
   background: #ffebd9;
   color: #e66767;
   font-family: Roboto, sans-serif;
@@ -70,4 +61,5 @@ export const ConfirmButton = styled.button`
   font-size: 14px;
   border: none;
   cursor: pointer;
+  margin-top: 24px;
 `

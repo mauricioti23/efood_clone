@@ -22,8 +22,9 @@ const RestaurantProfile: React.FC = () => {
   const navigate = useNavigate()
 
   const [selectedItem, setSelectedItem] = useState<CartItem | null>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const [cartItems, setCartItems] = useState<CartItem[]>([])
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [isDeliveryOpen, setIsDeliveryOpen] = useState(false)
   const [isPaymentOpen, setIsPaymentOpen] = useState(false)
@@ -54,16 +55,10 @@ const RestaurantProfile: React.FC = () => {
     setCartItems((prev) => prev.filter((_, i) => i !== index))
   }
 
-  // Calcular valor total
   const totalValue = cartItems.reduce(
     (acc, item) => acc + parseFloat(item.price.replace(',', '.')),
     0
   )
-
-  // Gerar ORDER_ID aleatório
-  const generateOrderId = () => {
-    return Math.random().toString(36).substring(2, 10).toUpperCase()
-  }
 
   return (
     <>
@@ -128,7 +123,7 @@ const RestaurantProfile: React.FC = () => {
         }}
         onFinish={() => {
           setIsPaymentOpen(false)
-          setOrderId(generateOrderId())
+          setOrderId(String(new Date().getTime()))
           setIsConfirmationOpen(true)
         }}
       />
@@ -137,7 +132,7 @@ const RestaurantProfile: React.FC = () => {
         isOpen={isConfirmationOpen}
         onClose={() => setIsConfirmationOpen(false)}
         orderId={orderId}
-        onConclude={() => {
+        onFinish={() => {
           setIsConfirmationOpen(false)
           setCartItems([])
         }}
