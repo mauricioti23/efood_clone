@@ -5,6 +5,8 @@ import MenuCards from '../../components/MenuCards'
 import MenuModal from '../../components/MenuModal'
 import CartSideBar from '../../components/CartSideBar'
 import DeliverySideBar from '../../components/DeliverySideBar'
+import PaymentSideBar from '../../components/PaymentSideBar'
+import OrderConfirmationSideBar from '../../components/OrderConfirmationSideBar'
 import Footer from '../../components/Footer'
 
 import logo from '../../assets/images/logo.png'
@@ -24,6 +26,9 @@ const RestaurantProfile: React.FC = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [isDeliveryOpen, setIsDeliveryOpen] = useState(false)
+  const [isPaymentOpen, setIsPaymentOpen] = useState(false)
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false)
+  const [orderId, setOrderId] = useState('')
 
   // Abrir o modal do produto
   const handleOpenModal = (item: CartItem) => {
@@ -47,6 +52,17 @@ const RestaurantProfile: React.FC = () => {
   // Remover item do carrinho
   const handleRemoveItem = (index: number) => {
     setCartItems((prev) => prev.filter((_, i) => i !== index))
+  }
+
+  // Calcular valor total
+  const totalValue = cartItems.reduce(
+    (acc, item) => acc + parseFloat(item.price.replace(',', '.')),
+    0
+  )
+
+  // Gerar ORDER_ID aleatório
+  const generateOrderId = () => {
+    return Math.random().toString(36).substring(2, 10).toUpperCase()
   }
 
   return (
@@ -95,6 +111,35 @@ const RestaurantProfile: React.FC = () => {
         onBackToCart={() => {
           setIsDeliveryOpen(false)
           setIsCartOpen(true)
+        }}
+        onContinue={() => {
+          setIsDeliveryOpen(false)
+          setIsPaymentOpen(true)
+        }}
+      />
+
+      <PaymentSideBar
+        isOpen={isPaymentOpen}
+        onClose={() => setIsPaymentOpen(false)}
+        total={totalValue}
+        onBackToDelivery={() => {
+          setIsPaymentOpen(false)
+          setIsDeliveryOpen(true)
+        }}
+        onFinish={() => {
+          setIsPaymentOpen(false)
+          setOrderId(generateOrderId())
+          setIsConfirmationOpen(true)
+        }}
+      />
+
+      <OrderConfirmationSideBar
+        isOpen={isConfirmationOpen}
+        onClose={() => setIsConfirmationOpen(false)}
+        orderId={orderId}
+        onConclude={() => {
+          setIsConfirmationOpen(false)
+          setCartItems([])
         }}
       />
 

@@ -13,12 +13,14 @@ type Props = {
   isOpen: boolean
   onClose: () => void
   onBackToCart: () => void
+  onContinue?: () => void
 }
 
 const DeliverySideBar: React.FC<Props> = ({
   isOpen,
   onClose,
-  onBackToCart
+  onBackToCart,
+  onContinue
 }) => {
   const [formData, setFormData] = useState({
     recipient: '',
@@ -94,7 +96,7 @@ const DeliverySideBar: React.FC<Props> = ({
           onChange={handleChange}
         />
 
-        <FormButton>Continuar com o pagamento</FormButton>
+        <FormButton onClick={onContinue}>Continuar com o pagamento</FormButton>
         <FormButton onClick={onBackToCart}>Voltar para o carrinho</FormButton>
       </SidebarContainer>
     </Overlay>
