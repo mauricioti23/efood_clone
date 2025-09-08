@@ -1,41 +1,67 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 100%; /* mesma largura do header */
+  width: 100%;
   height: 280px;
   background-size: cover;
   background-position: center;
   position: relative;
+
+  @media (max-width: 1024px) {
+    height: 240px;
+  }
+
+  @media (max-width: 768px) {
+    height: 200px;
+  }
+
+  @media (max-width: 480px) {
+    height: 160px;
+  }
 `
 
 export const Cuisine = styled.div`
   font-family: Roboto, sans-serif;
-  font-weight: 100; /* Thin */
-  font-style: normal;
+  font-weight: 100;
   font-size: 32px;
-  line-height: 100%;
-  letter-spacing: 0%;
   color: #ffffff;
   position: absolute;
   top: 25px;
   left: 170px;
-  width: 101px;
-  height: 33.25px;
-  padding: 4px 8px;
+
+  @media (max-width: 1024px) {
+    left: 20px;
+    font-size: 28px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 `
 
 export const Name = styled.div`
   font-family: Roboto, sans-serif;
-  font-weight: 900; /* Black */
-  font-style: normal;
+  font-weight: 900;
   font-size: 32px;
-  line-height: 100%;
-  letter-spacing: 0%;
   color: #ffffff;
   position: absolute;
-  bottom: 10px; /* Quase no limite inferior do hero */
+  bottom: 10px;
   left: 170px;
-  width: 676px;
-  height: 33.25px;
-  padding: 4px 8px;
+
+  @media (max-width: 1024px) {
+    left: 20px;
+    font-size: 28px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 `

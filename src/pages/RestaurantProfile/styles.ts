@@ -19,28 +19,50 @@ export const Header = styled.header`
   }
 `
 
+// Container do Header que alinha título e carrinho ao container de cards
+export const InnerHeader = styled.div`
+  width: 1024px; // mesma largura do container dos cards
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 59px;
+
+  @media (max-width: 1024px) {
+    width: 90%;
+    padding-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding-top: 30px;
+    align-items: center;
+    gap: 8px;
+  }
+
+  @media (max-width: 480px) {
+    padding-top: 20px;
+  }
+`
+
 export const Title = styled.h1`
   font-family: Roboto, sans-serif;
   font-weight: 900;
   font-size: 18px;
   color: #e66767;
-  position: absolute;
-  top: 59px;
-  left: 171px;
   cursor: pointer;
 
   @media (max-width: 1024px) {
-    left: 20px;
     font-size: 16px;
   }
 
   @media (max-width: 768px) {
-    top: 40px;
     font-size: 14px;
   }
 
   @media (max-width: 480px) {
-    top: 30px;
     font-size: 12px;
   }
 `
@@ -71,23 +93,17 @@ export const Cart = styled.div`
   font-weight: 900;
   font-size: 18px;
   color: #e66767;
-  position: absolute;
-  top: 59px;
-  right: 171px;
   cursor: pointer;
 
   @media (max-width: 1024px) {
-    right: 20px;
     font-size: 16px;
   }
 
   @media (max-width: 768px) {
-    top: 40px;
     font-size: 14px;
   }
 
   @media (max-width: 480px) {
-    top: 30px;
     font-size: 12px;
   }
 `

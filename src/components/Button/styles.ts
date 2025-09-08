@@ -8,8 +8,8 @@ export const ButtonContainer = styled.button`
   height: 24px;
   background-color: #e66767;
   color: #ffebd9;
-  font-family: Roboto, sans-serif;
-  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; /* Bold */
   font-size: 14px;
   line-height: 100%;
   letter-spacing: 0;
@@ -21,6 +21,10 @@ export const ButtonContainer = styled.button`
   &:hover {
     transform: translateY(-2px);
   }
-`
 
-export {}
+  @media (max-width: 480px) {
+    width: 70px;
+    height: 22px;
+    font-size: 12px;
+  }
+`

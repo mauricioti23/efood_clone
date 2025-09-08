@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Header, Logo, Title, Cart, Container } from './styles'
+import { Header, InnerHeader, Logo, Title, Cart, Container } from './styles'
 import MenuCards from '../../components/MenuCards'
 import MenuModal from '../../components/MenuModal'
 import CartSideBar from '../../components/CartSideBar'
@@ -8,6 +8,7 @@ import DeliverySideBar from '../../components/DeliverySideBar'
 import PaymentSideBar from '../../components/PaymentSideBar'
 import OrderConfirmationSideBar from '../../components/OrderConfirmationSideBar'
 import Footer from '../../components/Footer'
+import RestaurantHero from '../../components/RestaurantHero'
 
 import logo from '../../assets/images/logo.png'
 
@@ -58,14 +59,18 @@ const RestaurantProfile: React.FC = () => {
   return (
     <>
       <Header>
-        <Title onClick={() => navigate('/')}>Restaurantes</Title>
+        <InnerHeader>
+          <Title onClick={() => navigate('/')}>Restaurantes</Title>
+          <Cart onClick={() => setIsCartOpen(true)}>
+            {cartItems.length > 0
+              ? `${cartItems.length} produto(s) no carrinho`
+              : 'Carrinho vazio'}
+          </Cart>
+        </InnerHeader>
         <Logo src={logo} alt="efood" />
-        <Cart onClick={() => setIsCartOpen(true)}>
-          {cartItems.length > 0
-            ? `${cartItems.length} produto(s) no carrinho`
-            : 'Carrinho vazio'}
-        </Cart>
       </Header>
+
+      <RestaurantHero />
 
       <Container>
         <MenuCards
