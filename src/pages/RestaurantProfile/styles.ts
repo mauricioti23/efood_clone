@@ -11,17 +11,16 @@ export const Header = styled.header`
   position: relative;
 
   @media (max-width: 768px) {
-    height: 150px;
+    height: 180px;
   }
 
   @media (max-width: 480px) {
-    height: 120px;
+    height: 160px;
   }
 `
 
-// Container do Header que alinha título e carrinho ao container de cards
 export const InnerHeader = styled.div`
-  width: 1024px; // mesma largura do container dos cards
+  width: 1024px;
   max-width: 100%;
   margin: 0 auto;
   display: flex;
@@ -36,13 +35,14 @@ export const InnerHeader = styled.div`
   }
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: row; /* manter linha no tablet */
+    justify-content: space-between;
     padding-top: 30px;
-    align-items: center;
-    gap: 8px;
   }
 
   @media (max-width: 480px) {
+    flex-direction: row; /* manter linha no mobile */
+    justify-content: space-between;
     padding-top: 20px;
   }
 `
