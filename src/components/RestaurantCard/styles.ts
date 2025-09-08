@@ -142,15 +142,23 @@ export const SaibaMaisButton = styled.button`
   background-color: #e66767;
   color: #ffebd9;
   font-family: Roboto, sans-serif;
-  font-weight: 700;
-  font-size: 12px;
+  font-weight: 700; /* Bold */
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
   border: none;
   cursor: pointer;
   margin-top: auto;
 
+  &:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s;
+  }
+
   @media (max-width: 480px) {
     width: 70px;
     height: 22px;
-    font-size: 11px;
+    font-size: 12px;
   }
 `
