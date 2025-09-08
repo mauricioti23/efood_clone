@@ -13,8 +13,10 @@ const Home: React.FC = () => {
 
   return (
     <>
+      {/* Hero fora do container para ocupar toda a largura */}
+      <Hero />
+
       <HomeContainer>
-        <Hero />
         <RestaurantList>
           <RestaurantCard
             name="Italian Bistro"
@@ -56,6 +58,7 @@ const Home: React.FC = () => {
           />
         </RestaurantList>
       </HomeContainer>
+
       <Footer />
     </>
   )

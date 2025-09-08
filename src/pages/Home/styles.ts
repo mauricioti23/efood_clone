@@ -19,22 +19,21 @@ export const HomeContainer = styled.div`
 `
 
 export const RestaurantList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* duas colunas */
   gap: 24px;
+  justify-items: center;
 
   @media (max-width: 1024px) {
     gap: 20px;
   }
 
   @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* uma coluna em tablet/mobile */
     gap: 16px;
   }
 
   @media (max-width: 480px) {
-    flex-direction: column;
-    align-items: center;
     gap: 12px;
   }
 `
